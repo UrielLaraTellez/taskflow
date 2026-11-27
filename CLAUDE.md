@@ -1,26 +1,27 @@
 # TaskFlow
 
-API REST de tareas pendientes, usada como laboratorio de infraestructura. Lo valioso es la infraestructura alrededor, no la app.
+REST API for to-do tasks, used as an infrastructure lab. The value is in the infrastructure around the app, not the app itself.
 
 ## Stack
 - Java 21, Spring Boot 4.2.0, Maven
-- Tests: JUnit 5 y Mockito (TDD cuando sea posible)
-- Base de datos: H2 en local; PostgreSQL (RDS) después
+- Tests: JUnit 5 and Mockito (TDD when possible)
+- Database: H2 locally; PostgreSQL (RDS) later
 
-## Alcance de la V1
-- Modelo Tarea: id, título, descripción, estado (PENDIENTE, EN_PROGRESO, HECHA) y fecha
-- CRUD REST con validaciones y manejo de errores
-- Endpoint de health (`/actuator/health`)
-- Tests unitarios y de integración
+## V1 scope
+- Task model: id, title, description, status (PENDING, IN_PROGRESS, DONE) and date
+- REST CRUD with validation and error handling
+- Health endpoint (`/actuator/health`)
+- Unit and integration tests
 
-## Fuera de alcance
-Autenticación, frontend, paginación, cachés y mensajería.
+## Out of scope
+Authentication, frontend, pagination, caching and messaging.
 
-## Reglas de trabajo
-- Uriel escribe a mano la infraestructura y los comandos; Claude Code ayuda con andamiaje, tests y revisión.
-- Antes de aceptar un cambio, Uriel debe poder explicarlo.
-- Nunca subir secretos, claves ni credenciales al repo.
-- Las decisiones importantes se registran en `docs/decisiones.md`.
+## Working rules
+- Everything visible to others (code, comments, commit messages, README, docs) is written in English.
+- Uriel writes the infrastructure and commands by hand; Claude Code helps with scaffolding, tests and review.
+- Uriel must be able to explain any change before accepting it.
+- Never commit secrets, keys or credentials.
+- Important decisions are recorded in `docs/decisions.md`.
 
-## V1 terminada cuando
-Corre en EC2 detrás de un ALB con health checks, usa RDS, tiene logs y alarmas en CloudWatch, y el README incluye un diagrama.
+## V1 is done when
+It runs on EC2 behind an ALB with health checks, uses RDS, has logs and alarms in CloudWatch, and the README includes a diagram.
