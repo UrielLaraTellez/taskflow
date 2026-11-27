@@ -8,7 +8,7 @@ REST API for to-do tasks, used as an infrastructure lab. The value is in the inf
 - Database: H2 locally; PostgreSQL (RDS) later
 
 ## V1 scope
-- Task model: id, title, description, status (PENDING, IN_PROGRESS, DONE) and date
+- Task model: id, title, description, status (PENDING, IN_PROGRESS, DONE) and createdAt (set by the server)
 - REST CRUD with validation and error handling
 - Health endpoint (`/actuator/health`)
 - Unit and integration tests
