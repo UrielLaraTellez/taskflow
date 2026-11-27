@@ -49,3 +49,13 @@
 **Alternatives:** Adding Flyway from the start, which is more setup before there is a real database to migrate.
 
 **Consequences:** Data is lost on every restart locally. This setting must not reach the RDS environment.
+
+## 2026-11-27 — Sequential Long IDs
+
+**Context:** Tasks use auto-increment `Long` IDs (`GenerationType.IDENTITY`). Sequential IDs are guessable, which becomes a security concern when resources belong to users.
+
+**Decision:** Keep sequential IDs in TaskFlow.
+
+**Alternatives:** Random UUIDs, which are not guessable but are larger and fragment indexes; time-ordered UUIDs (UUIDv7), which avoid most of the index fragmentation.
+
+**Consequences:** Acceptable here: there is no authentication, no per-user data and no sensitive information. Gaps after deletions are expected. Revisit when authentication or sensitive data is added.
